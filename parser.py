@@ -32,5 +32,9 @@ with open(sys.argv[1], "r") as response_file:
     __rev = re.search(r"__rev=(.+?)'", response).group(1)
 
 
-    
+    with open("_response_values", 'w') as export:
+        export.write(cookie + '\n');  export.write(__user + '\n');
+        export.write(__a + '\n');  export.write(__dyn + '\n');
+        export.write(__req + '\n');  export.write(fb_dtsg( + '\n');
+        export.write(ttstamp + '\n');  export.write(__rev + '\n');
 
