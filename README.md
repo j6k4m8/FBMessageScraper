@@ -15,6 +15,7 @@ Run for both `dumper.py` and `group_dumper.py`
 3. Scroll up in the conversation until the page attempts to load previous messages
 4. Look for the POST request to [thread\_info.php](https://www.facebook.com/ajax/mercury/thread_info.php)
 5. You need to copy certain parameters from this request into the python script to complete the setup:
+   For this, you have two options. Either:
   1. Set the `cookie` value to the value you see in Chrome under `Request Headers`
   2. Set the `__user` value to the value you see in Chrome under `Form Data` 
   3. Set the `__a` value to the value you see in Chrome under `Form Data`
@@ -24,6 +25,13 @@ Run for both `dumper.py` and `group_dumper.py`
   7. Set the `ttstamp` value to the value you see in Chrome under `Form Data`
   8. Set the `__rev` value to the value you see in Chrome under `Form Data`
 
+  or,
+  1. Right-click the request box in the left column (the second line says `/ajax/mercury`.)
+  2. Click 'Copy as cURL'.
+  3. Paste this into a file called `response_file` (or something you'll remember.)
+  4. Run: `python parser.py response_file`
+
+
 You're now all set to start downloading messages.
 
 Downloading Messages
@@ -32,7 +40,7 @@ Downloading Messages
 1. Get the conversation ID for those messages by opening [http://graph.facebook.com/{username-of-chat-partner}](http://graph.facebook.com/{username_of_chat_partner})
 2. Copy the `id` value from there
 3. For group conversations, the ID can be retrieved from the messages tab, as part of the URL. You must use `group_dumper.py` instead.
-4. Run the command `python dumper.py {id} 2000`, and put the value you retrieved for ID earlier
+4. Run the command `python dumper.py {id} 2000`, and put the value you retrieved for ID earlier.
 
 Messages are saved by default to `Messages/{id}/`
 
