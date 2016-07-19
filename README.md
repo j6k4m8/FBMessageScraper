@@ -1,6 +1,14 @@
 Facebook Message Scraper
 ========================
 
+## Usage
+```
+python dumper.py {id} {chunk} < {headerfile}
+```
+
+Where `id` is the Facebook user id for which you want to download messages, `chunk` is the ≈2000 amount of messages to download at a time, and `headerfile` is the filename of the header file downloaded as per the **Details** section below.
+
+## Details
 Forked from [RaghavSood](https://github.com/RaghavSood/FBMessageScraper), but updated to use @tomer8007's [fix for timestamps](https://github.com/RaghavSood/FBMessageScraper/issues/3#issuecomment-168302782), and then **further** updated to allow you pass in a header, copied and pasted from the Facebook devtools console, in stdin. See instructions below for (simple) details!
 
 1. In Chrome, open [facebook.com/messages](https://www.facebook.com/messages/) and open any conversation with a fair number of messages
