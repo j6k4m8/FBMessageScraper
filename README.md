@@ -15,7 +15,7 @@ Forked from [RaghavSood](https://github.com/RaghavSood/FBMessageScraper), but up
 2. Open the network tab of the Chrome Developer tools
 3. Scroll up in the conversation until the page attempts to load previous messages
 4. Look for the POST request to [thread\_info.php](https://www.facebook.com/ajax/mercury/thread_info.php)
-5. Click and drag to copy *everything* inside the `Headers`—`Request Headers` pane. Paste this into a file. It should start with `:authority:` and end with `__rev:{integer}`. Save this as some filename you'll remember, such as `header`.
+5. Click and drag to copy *everything* inside the `Headers` pane. Paste this into a file. Save this as some filename you'll remember, such as `header`.
 6. Run `python dumper.py {id} {chunk size} < header`, where `id` can be found using the instructions below, and chunk size is the size of JSON file to download (2000 is a good default).
 
 ![image](https://cloud.githubusercontent.com/assets/693511/16968876/74d3cab4-4ddf-11e6-9b97-fb6827bcc6ee.png)
@@ -25,5 +25,7 @@ Forked from [RaghavSood](https://github.com/RaghavSood/FBMessageScraper), but up
 
 1. Get the conversation ID for those messages by opening [http://graph.facebook.com/{username-of-chat-partner}](http://graph.facebook.com/{username_of_chat_partner})
 2. Copy the `id` value from there
+
+If that doesn't work, you can also check the secondary index of line ~48 in your headers file (should start with `messages[user_ids]`).
 
 Messages are saved by default to `Messages/{id}/`
